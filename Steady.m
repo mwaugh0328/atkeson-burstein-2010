@@ -100,28 +100,28 @@ gap200000=max(find(vecemploynum<200000));
 slope1000_5000=log((1-veccumemploy(gap5000))/(1-veccumemploy(gap1000)))/log(vecemploynum(gap5000)/vecemploynum(gap1000));
 slope20000_100000=log((1-veccumemploy(gap100000))/(1-veccumemploy(gap20000)))/log(vecemploynum(gap100000)/vecemploynum(gap20000));
 
-figure((indexcase-1)*2+1)
-
-subplot(2,1,1)
-xx=log(vecemploynum);
-yy=log(1-veccumemploy);
-hold on
-scatter(xx(gapmin:gap200000),yy(gapmin:gap200000),'.')
-hold off
-xlabel('log employment')
-ylabel('log(1-F(employment))')
-if calib==0
-    legend('old SS','new SS')
-end
-title('Employment-based size distribution')
-
-subplot(2,1,2)
-hold on
-scatter(log(vecemployD(gapmin:gap200000)),vecq(gapmin:gap200000),'.')
-hold off
-xlabel('z')
-ylabel('q')
-title('Process Innovation')
+% figure((indexcase-1)*2+1)
+% 
+% subplot(2,1,1)
+% xx=log(vecemploynum);
+% yy=log(1-veccumemploy);
+% hold on
+% scatter(xx(gapmin:gap200000),yy(gapmin:gap200000),'.')
+% hold off
+% xlabel('log employment')
+% ylabel('log(1-F(employment))')
+% if calib==0
+%     legend('old SS','new SS')
+% end
+% title('Employment-based size distribution')
+% 
+% subplot(2,1,2)
+% hold on
+% scatter(log(vecemployD(gapmin:gap200000)),vecq(gapmin:gap200000),'.')
+% hold off
+% xlabel('z')
+% ylabel('q')
+% title('Process Innovation')
 
 % 6: Displays Results
 
