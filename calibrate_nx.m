@@ -1,6 +1,6 @@
 function [xxx] = calibrate_nx(nx)
 
-MATpars = [30       0.05      0.725     0.4           1      -0.25        0.1];
+MATpars = [30       0.0283      0.725     0.4           1      -0.25        0.1];
 
 choosecase=1;  
 indexcase = 1;
@@ -10,12 +10,12 @@ bold=MATpars(choosecase,1);    % Elasticity of process innovation cost (controls
 annualr=MATpars(choosecase,2); % Annual interest rate; 
 lambda=MATpars(choosecase,5);  % Share of labor in production of research good
 nx = nx;      % Export fixed cost
-anndelta=0.01;               % Annual depreciation rate;
+anndelta=0.02;               % Annual depreciation rate;
 sigma=0.25;                    % Std.Dev of shocks to productivity;
-rho=5;                         % Elasticity of substitution; 
+rho=3.17;                         % Elasticity of substitution; 
 
 slope=MATpars(choosecase,6);   % Calibrated slope of employment-based distribution for large firms -- choose to match slope for 1000-5000 firms 
-shtrade=0.10;                 % Calibrated share of trade in output;
+shtrade=0.1047;                 % Calibrated share of trade in output;
 shNT=MATpars(choosecase,4);    % Calibrated share of employment of exporters; 
 
 %newDratio=0.9995;               % Ratio of new to old D , 0.9995 is the value we use when we consider a small change
