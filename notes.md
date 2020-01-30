@@ -5,7 +5,7 @@ These are some basic notes and modifications of their code explaining Atkeson an
 - The model is essentially a Meltiz model with some new stuff...firms can innovate to influence their productivity is the key margin, but an entry margin, and then selection into exporting is incorporated as well. This is all done in the context of a well define GE economy regarding preferences of consumers, etc.
 
 - Here is the key result: Despite all the bells and whistles, the first-order effect from the gains to trade are given by the first part of equation (24), which is the (share of exports in output)x(change in trade costs). Entry stuff, reallocation effects, innovation stuff, this is all second-order. And the second-order stuff is, well, second-order. Hence their punch line statement "microeconomic evidence on firms
-responses to changes trade costs may not be informative about ... aggregate welfare." Why is this, I think the clearest intuition is about the economy being efficient and then it follows from a direct application of the envelope theorem (see for example footnote 24).
+responses to changes trade costs may not be informative about...aggregate welfare." Why is this, I think the clearest intuition is about the economy being efficient and then it follows from a direct application of the envelope theorem (see for example footnote 24). Honestly, it's harder for me to follow the intuition of how free-entry has to move to offset stuff in the decentralized equilibrium...maybe I'll figure it out one day (It took me like 10 years to figure this part of AB anyways)
 
 Let's see this in practice... I downloaded the code from [here](http://www.econ.ucla.edu/arielb/innovcodes.zip) and modified it and is in the repository.
 
@@ -62,4 +62,4 @@ And these are the results
 ```
 welfare elasticity = 0.12803 , welfare = 1.358 , welfare_direct = 1.1031
 ```
-which says, ok, this calibration delivers a 1.3 percentage point gain from a 10 percentage point reduction in trade costs and most of it is from the direct effect of 1.1 percent. I think this is partly about the discount factor being lower. So even in a very differently calibrated economy, the importance of second-order effects is limited. 
+which says, ok...first the elasticity is not far from the export share of 0.105, then this calibration delivers a 1.3 percentage point gain from a 10 percentage point reduction in trade costs and most of it is from the direct effect of 1.1 percent. I think this is partly about the discount factor being lower. So even in a very differently calibrated economy, the importance of second-order effects is limited.
