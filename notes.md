@@ -40,17 +40,26 @@ Then run it and let's see what happens
 ```
 >> Master_AB
 ```
+Below are three key outcomes.
+```
+welfare elasticity = 0.10292 , welfare = 1.0903 , welfare_direct = 0.7902
+```
+Here the welfare gains are much larger, a ten percent reduction in trade costs gives a 1.1 percent welfare gain. And there is a larger gap between the direct effect and the measured effect, about 0.30 percentage points of welfare (almost a third) is attributed to this. But the overall point remains that the welfare gains are largely pinned down by the direct effect.
 
-Here the welfare gains are much larger. And there is a larger gap between the direct effect and the measured effect, about 0.30 percentage points of welfare (a third) is attributed to this. But the overall point remains that the welfare gains are largely pinned down by the direct effect.
-
-**Note:** To replicate their large change, pick the ``newDratio`` to be 0.965 which will replicate the results in Table 5, column (2), next to last row with the 0.083 number.
+**Note:** To replicate their large change, pick the ``newDratio`` to be 0.965 which will replicate the results in Table 5, column (2), next to last row with the 0.083 number. Compared to the result above suggest that the "large change" was not that large.
 
 ---
 
 ##### Alternative Calibration
 
-One might speculate about different parameter schemes, etc. So what I did was recalibrate their model to mimic the calibration in [Perla, Tonetti, and Waugh](https://www.waugheconomics.com/uploads/2/2/5/6/22563786/ptw.pdf). So specifically, I set the discount factor, elasticity of substitution, and the exit rate of firms to be the same as PTW. The firm moments are left the same as in AB. This does require recalibrating the $n_x$ parameter which was done by hand in ``calibrate_nx.m``
+One might speculate about different parameter schemes, etc. So what I did was recalibrate their model to mimic the calibration in [Perla, Tonetti, and Waugh](https://www.waugheconomics.com/uploads/2/2/5/6/22563786/ptw.pdf). So specifically, I set the discount factor, elasticity of substitution, the exit rate of firms, and the aggregate import share to be the same as PTW. The firm moments are left the same as in AB. This does require recalibrating the $n_x$ parameter which was done by hand in ``calibrate_nx.m``
 
+Then simply run this...
 ```
 >> Master_ptw
 ```
+And these are the results
+```
+welfare elasticity = 0.12803 , welfare = 1.358 , welfare_direct = 1.1031
+```
+which says, ok, this calibration delivers a 1.3 percentage point gain from a 10 percentage point reduction in trade costs and most of it is from the direct effect of 1.1 percent. I think this is partly about the discount factor being lower. So even in a very differently calibrated economy, the importance of second-order effects is limited. 
