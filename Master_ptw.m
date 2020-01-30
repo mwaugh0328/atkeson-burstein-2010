@@ -309,11 +309,13 @@ while diffiter > .5*10^-2
     MATM(:,indexcase)=Mtran;
     save restran MATsharexp MATZZ MATY MATC MATPi MATM
     
-    disp(['iter = ',num2str(iter),' diff: all = ',num2str(diffiter),' diff: Y = ',num2str(diffY),', w = ',num2str(diffw) ...
-          ,' index: Y = ',num2str(indmaxY),', w = ',num2str(indmaxw),' , welfare elasticity = ',num2str(-log(welfdiff)/log(newDratio)), ' , welfare = ', num2str(welfdiff)])
-
-%    disp(['iter = ',num2str(iter),' diff: all = ',num2str(diffiter),' diff: Y = ',num2str(diffY),', w = ',num2str(diffw) ...
-%           ,' index: Y = ',num2str(indmaxY),', w = ',num2str(indmaxw),' , welfare = ',num2str(-log(welfdiff))])
+    direct_effect = -shtrade*(100*log(newDratio));
+    
+%     disp(['iter = ',num2str(iter),' diff: all = ',num2str(diffiter),' diff: Y = ',num2str(diffY),', w = ',num2str(diffw) ...
+%           ,' index: Y = ',num2str(indmaxY),', w = ',num2str(indmaxw),' , welfare = ',num2str(-log(welfdiff)/log(newDratio))])
+      disp(['iter = ',num2str(iter),' diff: all = ',num2str(diffiter),' diff: Y = ',num2str(diffY),', w = ',num2str(diffw)...
+          ' , welfare elasticity = ',num2str(-log(welfdiff)/log(newDratio)), ' , welfare = ', num2str(100*(welfdiff-1)),...
+          ' , welfare_direct = ', num2str(direct_effect)])  
     
     iter=iter+1;
     %log(newDratio)
@@ -409,5 +411,5 @@ if plotforpaper==1;
 
     orient('Tall')
 
-    suptitle('Figure 1 : Transition Dynamics of Exports / Output from a Decline in Marginal Trade Costs')
+    %suptitle('Figure 1 : Transition Dynamics of Exports / Output from a Decline in Marginal Trade Costs')
 end

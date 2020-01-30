@@ -47,9 +47,6 @@ MATpars=[...
 
 allcases=[3]; %choose rows to run ... STILL NEED TO CHOOSE newDratio below
 
-%allcases=[3 4 18 19]; %choose rows to run ... STILL NEED TO CHOOSE newDratio below
-
-
 for indexcase=1:length(allcases)
     
 disp(' ')
@@ -64,16 +61,17 @@ bold=MATpars(choosecase,1);    % Elasticity of process innovation cost (controls
 annualr=MATpars(choosecase,2); % Annual interest rate; 
 lambda=MATpars(choosecase,5);  % Share of labor in production of research good
 nx=MATpars(choosecase,3);      % Export fixed cost
-anndelta=0.01;               % Annual depreciation rate;
+anndelta=0.0055;               % Annual depreciation rate;
 sigma=0.25;                    % Std.Dev of shocks to productivity;
 rho=5;                         % Elasticity of substitution; 
 
 slope=MATpars(choosecase,6);   % Calibrated slope of employment-based distribution for large firms -- choose to match slope for 1000-5000 firms 
-shtrade=0.10;                 % Calibrated share of trade in output;
+shtrade=0.075;                 % Calibrated share of trade in output;
 shNT=MATpars(choosecase,4);    % Calibrated share of employment of exporters; 
 
 %newDratio=0.9995;               % Ratio of new to old D , 0.9995 is the value we use when we consider a small change
-newDratio=0.90;                % "Large change" (maximum to guarantee convergence under b=10)
+newDratio = 0.90; %Mike's 10 percent change...
+%newDratio=0.965;                % "Large change" (maximum to guarantee convergence under b=10)
 %newDratio=0.7;                % "Larger change" (maximum to guarantee convergence under b=30)
 
 dotransition=1;                % 1 to compute the transition dynamics  -- note that computing this can take around 4 hours
@@ -333,12 +331,13 @@ while diffiter>toliter
     MATM(:,indexcase)=Mtran;
     save restran MATsharexp MATZZ MATY MATC MATPi MATM
     
-    disp(['iter = ',num2str(iter),' diff: all = ',num2str(diffiter),' diff: Y = ',num2str(diffY),', w = ',num2str(diffw) ...
-          ,' index: Y = ',num2str(indmaxY),', w = ',num2str(indmaxw),' , welfare = ',num2str(-log(welfdiff)/log(newDratio))])
-
-%    disp(['iter = ',num2str(iter),' diff: all = ',num2str(diffiter),' diff: Y = ',num2str(diffY),', w = ',num2str(diffw) ...
-%           ,' index: Y = ',num2str(indmaxY),', w = ',num2str(indmaxw),' , welfare = ',num2str(-log(welfdiff))])
+    direct_effect = -shtrade*(100*log(newDratio));
     
+%     disp(['iter = ',num2str(iter),' diff: all = ',num2str(diffiter),' diff: Y = ',num2str(diffY),', w = ',num2str(diffw) ...
+%           ,' index: Y = ',num2str(indmaxY),', w = ',num2str(indmaxw),' , welfare = ',num2str(-log(welfdiff)/log(newDratio))])
+      disp(['iter = ',num2str(iter),' diff: all = ',num2str(diffiter),' diff: Y = ',num2str(diffY),', w = ',num2str(diffw)...
+          ' , welfare elasticity = ',num2str(-log(welfdiff)/log(newDratio)), ' , welfare = ', num2str(100*(welfdiff-1)),...
+          ' , welfare_direct = ', num2str(direct_effect)])  
     iter=iter+1;
 
 end
@@ -433,5 +432,5 @@ if plotforpaper==1;
 
     orient('Tall')
 
-    suptitle('Figure 1 : Transition Dynamics of Exports / Output from a Decline in Marginal Trade Costs')
+    %suptitle('Figure 1 : Transition Dynamics of Exports / Output from a Decline in Marginal Trade Costs')
 end
