@@ -1,3 +1,5 @@
+#### Notes on Atkeson and Bustein's 2010 JPE paper
+
 These are some basic notes and modifications of their code explaining Atkeson and Bustein's 2010 JPE paper on "[Innovation, Firm dynamics, and International Trade](http://www.econ.ucla.edu/arielb/innovation.pdf)"
 
 - Basic idea: Lot's of accumulated evidence suggesting importance of the firm as an object of interest in the context of trade. This takes lots of forms, selection into exporting, entry, and innovation processes. The idea is to use a model to understand the importance of these different mechanisms for the gains from trade.
