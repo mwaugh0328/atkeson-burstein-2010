@@ -182,7 +182,7 @@ end
 diffiter=10;
 iter=1;
 
-while diffiter > 10^-2
+while diffiter > .5*10^-2
 
     %% IV- Using the Value function in the last period, and the guesses for Y, Z, C and W, iterate backwards to find the policy functions 
 
