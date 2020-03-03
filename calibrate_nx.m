@@ -15,7 +15,7 @@ sigma=0.25;                    % Std.Dev of shocks to productivity;
 rho=3.17;                         % Elasticity of substitution; 
 
 slope=MATpars(choosecase,6);   % Calibrated slope of employment-based distribution for large firms -- choose to match slope for 1000-5000 firms 
-shtrade=0.1047;                 % Calibrated share of trade in output;
+shtrade=0.1063;                 % Calibrated share of trade in output;
 shNT=MATpars(choosecase,4);    % Calibrated share of employment of exporters; 
 
 %newDratio=0.9995;               % Ratio of new to old D , 0.9995 is the value we use when we consider a small change

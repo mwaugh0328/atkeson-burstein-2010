@@ -16,10 +16,13 @@ close all;
 MATpars=[...
 
 
-30       0.0283      1.033     0.4           1      -0.25        0.1
+30       0.0283      1.0448     0.4           1      -0.25        0.1
 
 
 ];
+
+%%% Note that I used calibrate_nx to figure out the exporter fixed costs
+%%% so trade and firm moments are fit.
 
 allcases=[1]; %choose rows to run ... STILL NEED TO CHOOSE newDratio below
 
@@ -45,11 +48,11 @@ sigma=0.25;                    % Std.Dev of shocks to productivity;
 rho=3.17;                         % Elasticity of substitution; 
 
 slope=MATpars(choosecase,6);   % Calibrated slope of employment-based distribution for large firms -- choose to match slope for 1000-5000 firms 
-shtrade=0.1047;                 % Calibrated share of trade in output;
+shtrade=0.1063;                 % Calibrated share of trade in output;
 shNT=MATpars(choosecase,4);    % Calibrated share of employment of exporters; 
 
 %newDratio=0.9995;               % Ratio of new to old D , 0.9995 is the value we use when we consider a small change
-newDratio=0.90;                % "Large change" (maximum to guarantee convergence under b=10)
+newDratio=0.9331;                % "Large change" (maximum to guarantee convergence under b=10)
 %newDratio=0.7;                % "Larger change" (maximum to guarantee convergence under b=30)
 
 dotransition=1;                % 1 to compute the transition dynamics  -- note that computing this can take around 4 hours
